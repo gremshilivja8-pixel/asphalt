@@ -1,0 +1,226 @@
+
+
+
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Courier New', Courier, monospace; background: #ffffff; color: #000000; line-height: 1.6; }
+
+/* Video Header */
+.header-video { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.header-video video { position: absolute; min-width: 100%; min-height: 100%; object-fit: cover; }
+.overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+.content { position: relative; z-index: 1; text-align: center; }
+
+/* Brand & Layout */
+.container { max-width: 1000px; margin: 50px auto; padding: 20px; text-align: center; }
+.brand-wrapper { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.flag { width: 50px; border-radius: 4px; }
+.divider { color: #d4af37; margin: 30px 0; font-size: 24px; }
+
+/* Location Section */
+.location-wrapper { display: flex; justify-content: space-between; align-items: center; margin: 40px 0; }
+.address-photo { width: 30%; height: 200px; object-fit: cover; border: 2px solid #d4af37; }
+.addr-box { font-size: 1.2rem; border-left: 3px solid #d4af37; padding-left: 20px; }
+
+/* About Section */
+.video-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 60px; }
+.video-wrapper video { width: 100%; border-radius: 8px; }
+
+@media (max-width: 768px) {
+    .video-section { grid-template-columns: 1fr; }
+    .location-wrapper { flex-direction: column; gap: 20px; }
+    .address-photo { width: 100%; }
+}
+
+.video-section-full {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Mund ta rrisësh këtë në 600px nëse do më shumë hapësirë */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Kjo është sekreti: e shtrin videon të mbushë gjithçka */
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+/* Videoja e shtrirë 100% gjerësi */
+.full-width-video {
+    width: 100%;
+    line-height: 0; /* Heq hapësirën e padukshme poshtë videos */
+}
+
+.hero-video {
+    width: 100%;
+    max-height: 600px; /* Mund ta kufizosh lartësinë që të mos bëhet shumë e madhe në desktop */
+    object-fit: cover;
+}
+
+/* Seksioni i tekstit poshtë */
+.text-section {
+    background-color: #ffffff; /* Sfondi i bardhë */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto; /* E qendron në mes */
+}
+
+.content-wrapper h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    color: #d4af37; /* Ari */
+    margin-bottom: 30px;
+}
+
+.content-wrapper p {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+
+.video-gallery-section {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Sfond i bardhë që ndërthuret me seksionin e tekstit */
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-item {
+    border: 3px solid #d4af37; /* Korniza e artë */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 300px; /* Lartësia fikse për harmoni */
+    transition: transform 0.4s ease;
+}
+
+.video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Videoja shtrihet që të mbushë hapësirën */
+}
+
+/* Efekti i bukur kur kalon miun mbi video */
+.video-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Kjo pjesë bën që në ekrane të vogla, grid-i të bëhet me 1 kolonë */
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr; /* Vetëm 1 kolonë, pra videot njëra poshtë tjetrës */
+        padding: 0 10px; /* Pak hapësirë nga anët që të mos ngjiten në ekran */
+    }
+
+    .video-item {
+        height: 250px; /* Pak më të shkurtra në telefon për t'u shfaqur më mirë */
+        border-width: 2px; /* Kornizë pak më e hollë për mobile */
+    }
+    
+    .video-gallery-section h3 {
+        font-size: 1.8rem; /* Titulli pak më i vogël për celular */
+    }
+}
+
+.team-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.team-member {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Foto rrethore */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #d4af37; /* Kornizë ari */
+}
+
+.team-member h4 {
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.main-footer {
+    background-color: #f4f0f0;
+    color: #000000;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 4px solid #d4af37;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Hapësira mes kontakteve */
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.contact-item i {
+    color: #d4af37; /* Ikona ngjyrë ari */
+    font-size: 1.2rem;
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #888;
+}
